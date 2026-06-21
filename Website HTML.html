@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IshaNova Concepts</title>
+  <style>
+    /* --- SHARED STYLES & LANDING PAGE --- */
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+  position: relative;
+  text-align: center;
+  padding: 60px 20px 20px;
+}
+
+.logo {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  width: 220px;
+  height: auto;
+}
+    header h1 {
+      color: gold;
+      font-size: 3.5em;
+      margin: 0;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    header p {
+      font-size: 1.1em;
+      color: #aaa;
+      margin-top: 5px;
+    }
+
+    /* Landing Page Container */
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 40px 20px;
+    }
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+    }
+    .card {
+      background: #111;
+      border-radius: 12px;
+      width: 300px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+      transition: all 0.3s ease;
+      border: 1px solid #222;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+      border-color: gold;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .card h2 {
+      color: gold;
+      font-size: 1.5em;
+      margin-bottom: 15px;
+    }
+
+    /* --- PROFESSIONAL EXTENSION PAGE STYLES --- */
+    #detail-view {
+      display: none;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 15px;
+      color: gold;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9em;
+      transition: 0.3s;
+    }
+    .back-btn:hover { text-shadow: 0 0 10px gold; }
+
+    .extension-wrapper {
+      background: linear-gradient(145deg, #0f0f0f, #050505);
+      border: 1px solid #333;
+      border-radius: 20px;
+      padding: 50px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+    
+    .extension-title {
+      color: gold;
+      font-size: 2.8em;
+      margin: 0 0 20px 0;
+      font-family: 'Georgia', serif;
+    }
+    .intro-text {
+      font-size: 1.2em;
+      color: #ccc;
+      margin-bottom: 40px;
+      border-left: 3px solid gold;
+      padding-left: 20px;
+    }
+
+    /* Feature Grid - Enhanced Borders */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .feature-item {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 15px;
+      border: 1px solid #444; /* Stronger border to prevent merging */
+      box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.05); /* Subtle inner gold glow */
+      transition: border 0.3s ease;
+    }
+    .feature-item:hover {
+      border-color: gold;
+    }
+    .feature-item h3 {
+      color: gold;
+      margin-top: 0;
+      font-size: 1.2em;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* WHY CHOOSE US SECTION - WITH SVG ICONS */
+    .why-header {
+      text-align: center;
+      margin-top: 60px;
+      margin-bottom: 40px;
+    }
+    .why-header h2 {
+      color: gold;
+      font-size: 2em;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+    
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .why-card {
+      background: #0d0d0d;
+      padding: 35px 25px;
+      border-radius: 20px;
+      text-align: center;
+      border: 1px solid #222;
+      transition: transform 0.3s ease;
+    }
+    .why-card:hover {
+      transform: scale(1.03);
+      border-color: #444;
+    }
+    .why-icon {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 20px;
+      fill: gold;
+    }
+    .why-card h4 {
+      color: gold;
+      margin: 10px 0;
+      font-size: 1.1em;
+    }
+    .why-card p {
+      font-size: 0.85em;
+      color: #aaa;
+    }
+
+    footer {
+      text-align: center;
+      padding: 50px 20px;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      .why-grid { grid-template-columns: 1fr; }
+    }
+    .partners-section {
+    margin-top: 40px;
+    padding: 40px 50px;
+    background: linear-gradient(145deg, #0f0f0f, #050505);
+    border: 1px solid #333;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    text-align: center;
+    }
+
+    .partners-section h2 {
+    color: gold;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+   }
+  .partners-grid {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    gap: 25px;
+    flex-wrap: wrap;
+   }
+
+   .partners-grid img {
+    max-width: 140px;
+    max-height: 70px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    background: #fff;
+    padding: 12px 18px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+   }
+   .partners-grid img:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+   }	
+  </style>
+</head>
+<body>
+
+  <header>
+  <img src="C:\Users\HP\OneDrive\Desktop\IshaNova\Index.Html\Images\Ishanova Logo.jpeg" alt="IshaNova Logo" class="logo">
+
+  <h1>IshaNova Concepts</h1>
+  <p>Built on Vision, Driven by Expertise</p>
+</header>
+
+  <div id="home-view" class="container">
+    <a href="?page=township" class="card-link">
+      <div class="card">
+        <img src="C:\Users\HP\OneDrive\Desktop\IshaNova\Index.Html\Images\1.township.png.png" alt="Township">
+        <h2>Township Development</h2>
+        <p>Master planning and land advisory for thriving communities.</p>
+      </div>
+    </a>
+
+    <a href="?page=defence" class="card-link">
+      <div class="card">
+        <img src="C:\Users\HP\OneDrive\Desktop\IshaNova\Index.Html\Images\2.defence.png.png" alt="Defence">
+        <h2>Defence Investment</h2>
+        <p>Bridging the gap in Telangana's aerospace and defence corridor.</p>
+      </div>
+    </a>
+
+    <a href="?page=water" class="card-link">
+      <div class="card">
+        <img src="C:\Users\HP\OneDrive\Desktop\IshaNova\Index.Html\Images\3.water.png.png" alt="Water">
+        <h2>Water Resources</h2>
+        <p>Expert hydrological studies and sustainable water solutions.</p>
+      </div>
+    </a>
+  </div>
+
+  <div id="detail-view">
+    <a href="index.html" class="back-btn" id="back-link">← BACK TO OVERVIEW</a>
+    
+    <div id="content-container">
+      </div>
+
+    <div class="why-header">
+      <h2>Why Choose IshaNova?</h2>
+    </div>
+    
+    <div class="why-grid">
+      <div class="why-card">
+        <svg class="why-icon" viewBox="0 0 24 24"><path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z"/></svg>
+        <h4>Integrated Solutions</h4>
+        <p>Connecting land, defence, and water sectors with strategic precision.</p>
+      </div>
+      <div class="why-card">
+        <svg class="why-icon" viewBox="0 0 24 24"><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/></svg>
+        <h4>Regional Mastery</h4>
+        <p>Expertise in South Indian regulatory landscapes and local compliance.</p>
+      </div>
+      <div class="why-card">
+        <svg class="why-icon" viewBox="0 0 24 24"><path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M17.13,17C15.92,18.85 14.11,20.24 12,20.92C9.89,20.24 8.08,18.85 6.87,17C6.53,16.5 6.24,16 6,15.47C6,13.47 10,12.33 12,12.33C14,12.33 18,13.47 18,15.47C17.76,16 17.47,16.5 17.13,17Z"/></svg>
+        <h4>Reliable & Transparent</h4>
+        <p>A commitment to ethical practices and measurable project outcomes.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 IshaNova Concepts. Built on Vision, Driven by Expertise.</p>
+  </footer>
+
+  <script>
+    const content = {
+      'township': {
+        title: "Township Development",
+        intro: "We turn complex land opportunities into thriving, well-planned communities. Our services are designed for landowners, developers, and investors seeking clarity and profitability.",
+        features: [
+          { h: "End-to-End Development", p: "We manage the entire lifecycle—including master planning, regulatory approvals, and infrastructure execution." },
+          { h: "Land Transaction Advisory", p: "Expert guidance on acquisition, due diligence, title verification, and valuation for legally sound deals." },
+          { h: "Strategic Offerings", p: "Site selection, liaison with local authorities, project feasibility studies, and partnership structuring." }
+        ],
+        partners: [
+       "Images/T1 Dastur.png.jpg",
+       "Images/T2 Honer.png.jpg",
+       ]
+      },
+      'defence': {
+        title: "Defence Sector Investment",
+        intro: "IshaNova Concepts facilitates private investment into Telangana’s aerospace corridor. We act as a bridge for investors and agencies.",
+        features: [
+          { h: "Investment Facilitation", p: "Assisting companies in setting up manufacturing, R&D, and support units within industrial hubs." },
+          { h: "Policy & Compliance", p: "Simplifying complex defence procurement policies, offset contracts, and state-specific incentives." },
+          { h: "Why Telangana?", p: "Leveraging robust infrastructure and a skilled talent pool in a premier destination for defence investment." }
+        ],
+        partners: [
+       "Images/D1 DRDO.png.png",
+       "Images/D2 Midhani.png.png",
+       "Images/D3 Adani.png.png"
+       ]
+      },
+      'water': {
+        title: "Water Resources Consulting",
+        intro: "Water is the most critical resource for South India’s future. We offer high-quality expertise catering to government bodies and industries.",
+        features: [
+          { h: "Expert Water Studies", p: "Comprehensive hydrological assessments, groundwater modeling, and aquifer mapping." },
+          { h: "South India Focus", p: "Covering key river basins and coastal aquifers across Karnataka, Tamil Nadu, and Telangana." },
+          { h: "Consulting Services", p: "Water auditing, irrigation feasibility, and sustainable rainwater harvesting design." }
+        ],
+        partners: [
+       "Images/I1 WAPCOS.png.png",
+       "Images/I2 Tata.png.png",
+       "Images/I3 Pranava.png.png"
+       ]
+      }
+    };
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const page = urlParams.get('page');
+
+    if (page && content[page]) {
+      document.getElementById('home-view').style.display = 'none';
+      document.getElementById('detail-view').style.display = 'block';
+      document.getElementById('back-link').href = window.location.pathname;
+
+      const data = content[page];
+      let partnersHtml = data.partners.map(partner => `
+      <img src="${partner}" alt="Partner Logo">
+      `).join('');
+      let featureHtml = data.features.map(f => `
+        <div class="feature-item">
+          <h3>${f.h}</h3>
+          <p style="font-size:0.95em; color:#bbb">${f.p}</p>
+        </div>
+      `).join('');
+
+      document.getElementById('content-container').innerHTML = `
+        <div class="extension-wrapper">
+          <h2 class="extension-title">${data.title}</h2>
+          <p class="intro-text">${data.intro}</p>
+          <div class="feature-grid">${featureHtml}</div>
+        </div>
+
+    <div class="partners-section">
+    <h2>Partnered With</h2>
+
+    <div class="partners-grid">
+        ${partnersHtml}
+    </div>
+    </div>
+      `;
+    }
+  </script>
+</body>
+</html>
