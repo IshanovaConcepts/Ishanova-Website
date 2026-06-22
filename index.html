@@ -197,8 +197,95 @@
       color: #666;
     }
 
-    @media (max-width: 768px) {
-      .why-grid { grid-template-columns: 1fr; }
+   @media (max-width: 768px) {
+
+      /* HEADER */
+      header {
+        padding: 20px 15px 15px;
+      }
+      header h1 {
+        font-size: 2em;
+      }
+      header p {
+        font-size: 0.95em;
+      }
+
+      /* LOGO — stop it overlapping the title */
+      .logo {
+        position: relative;
+        display: block;
+        margin: 0 auto 15px;
+        width: 140px;
+        top: 0;
+        right: 0;
+      }
+
+      /* HOME PAGE CARDS — full width on mobile */
+      .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 15px;
+        gap: 20px;
+      }
+      .card {
+        width: 90%;
+      }
+
+      /* DETAIL PAGE */
+      #detail-view {
+        padding: 15px 15px 40px;
+      }
+      .extension-wrapper {
+        padding: 25px 20px;
+      }
+      .extension-title {
+        font-size: 1.8em;
+      }
+      .intro-text {
+        font-size: 1em;
+      }
+
+      /* FEATURE BOXES — stack vertically */
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* PARTNERS SECTION */
+      .partners-section {
+        padding: 25px 15px;
+      }
+      .partners-grid {
+        gap: 15px;
+      }
+      .partners-grid img {
+        max-width: 100px;
+        max-height: 55px;
+        padding: 8px 12px;
+      }
+
+      /* WHY CHOOSE SECTION */
+      .why-header {
+        margin-top: 30px;
+        margin-bottom: 20px;
+      }
+      .why-header h2 {
+        font-size: 1.4em;
+        letter-spacing: 1.5px;
+      }
+      .why-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      .why-card {
+        padding: 25px 20px;
+      }
+
+      /* FOOTER */
+      footer {
+        padding: 30px 15px;
+        font-size: 0.85em;
+      }
+    }
     }
     .partners-section {
     margin-top: 40px;
