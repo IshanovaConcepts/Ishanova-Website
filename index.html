@@ -1,484 +1,343 @@
-<index html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IshaNova Concepts</title>
-  <style>
-    /* --- SHARED STYLES & LANDING PAGE --- */
-    body {
-      background-color: #000;
-      color: #fff;
-      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-    header {
-  position: relative;
-  text-align: center;
-  padding: 60px 20px 20px;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IshaNova Concepts</title>
+
+<style>
+body{background-color:#000;color:#fff;font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;margin:0;padding:0;line-height:1.6}
+header{position:relative;text-align:center;padding:60px 20px 20px}
+.logo{position:absolute;top:15px;right:30px;width:220px;height:auto}
+header h1{color:gold;font-size:3.5em;margin:0;letter-spacing:2px;text-transform:uppercase}
+header p{font-size:1.1em;color:#aaa;margin-top:5px}
+.container{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;padding:40px 20px;max-width:1100px;margin:0 auto}
+.card-link{text-decoration:none;color:inherit}
+.top-card{flex-basis:100%;display:flex;justify-content:center}
+.top-card .card{width:320px}
+.bottom-cards{display:flex;justify-content:center;align-items:stretch;gap:30px;width:100%}
+.card{background:#111;border-radius:12px;width:300px;padding:25px;text-align:center;box-shadow:0 0 20px rgba(255,215,0,.2);transition:all .3s ease;border:1px solid #222;box-sizing:border-box}
+.card:hover{transform:translateY(-10px);box-shadow:0 0 30px rgba(255,215,0,.4);border-color:gold}
+.card img{width:100%;border-radius:8px;margin-bottom:20px}
+.card h2{color:gold;font-size:1.5em;margin-bottom:15px}
+#detail-view{display:none;max-width:1100px;margin:0 auto;padding:0 20px 60px}
+.back-btn{display:inline-block;margin-bottom:15px;color:gold;text-decoration:none;font-weight:bold;font-size:.9em;transition:.3s}
+.back-btn:hover{text-shadow:0 0 10px gold}
+.extension-wrapper{background:linear-gradient(145deg,#0f0f0f,#050505);border:1px solid #333;border-radius:20px;padding:50px;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.extension-title{color:gold;font-size:2.8em;margin:0 0 20px;font-family:'Georgia',serif}
+.intro-text{font-size:1.2em;color:#ccc;margin-bottom:40px;border-left:3px solid gold;padding-left:20px}
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+.feature-item{background:rgba(255,255,255,.05);padding:30px;border-radius:15px;border:1px solid #444;box-shadow:inset 0 0 15px rgba(212,175,55,.05);transition:border .3s ease}
+.feature-item:hover{border-color:gold}
+.feature-item h3{color:gold;margin-top:0;font-size:1.2em;margin-bottom:15px}
+.why-header{text-align:center;margin-top:60px;margin-bottom:40px}
+.why-header h2{color:gold;font-size:2em;text-transform:uppercase;letter-spacing:3px}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.why-card{background:#0d0d0d;padding:35px 25px;border-radius:20px;text-align:center;border:1px solid #222;transition:transform .3s ease}
+.why-card:hover{transform:scale(1.03);border-color:#444}
+.why-icon{width:50px;height:50px;margin:0 auto 20px;fill:gold}
+.why-card h4{color:gold;margin:10px 0;font-size:1.1em}
+.why-card p{font-size:.85em;color:#aaa}
+.partners-section{margin-top:40px;padding:40px 50px;background:linear-gradient(145deg,#0f0f0f,#050505);border:1px solid #333;border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.5);text-align:center}
+.partners-section h2{color:gold;font-size:2em;text-transform:uppercase;letter-spacing:3px;margin-bottom:30px}
+.partners-grid{display:flex;justify-content:space-evenly;align-items:center;width:100%;gap:25px;flex-wrap:wrap}
+.partners-grid img{max-width:140px;max-height:70px;width:auto;height:auto;object-fit:contain;background:#fff;padding:12px 18px;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,.3);transition:transform .3s ease}
+.partners-grid img:hover{transform:translateY(-6px);box-shadow:0 8px 20px rgba(212,175,55,.3)}
+footer{text-align:center;padding:50px 20px;color:#666}
+
+/* Digitalisation section */
+.ish-dc{--ink:#16233B;--paper:#F3F5F4;--line:#D5DAD8;--ok:#1F7A5C;--wip:#B7791F;--pend:#6B7686;--accent:#1F7A5C;font-family:"Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.6;box-sizing:border-box}
+.ish-dc *,.ish-dc *::before,.ish-dc *::after{box-sizing:inherit}
+.ish-dc h2,.ish-dc h3{font-family:Georgia,"Times New Roman",serif;font-weight:700;line-height:1.2;margin:0 0 .6rem}
+.ish-dc p{margin:0 0 1rem;max-width:62ch}
+.ish-dc .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.ish-dc .bim{background:var(--paper);padding:64px 0}
+.ish-dc .bim h2{font-size:clamp(1.7rem,4vw,2.4rem)}
+.ish-dc .bim .lead{font-size:1.1rem}
+.ish-dc .bim-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+.ish-dc .get{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);padding:24px 26px}
+.ish-dc .get h3{font-size:1.15rem}
+.ish-dc .get ul{list-style:none;margin:0;padding:0}
+.ish-dc .get li{padding:10px 0 10px 28px;border-top:1px solid var(--line);position:relative}
+.ish-dc .get li:first-child{border-top:0}
+.ish-dc .get li::before{content:"";position:absolute;left:4px;top:17px;width:10px;height:6px;border-left:2px solid var(--ok);border-bottom:2px solid var(--ok);transform:rotate(-45deg)}
+.ish-dc .get b{display:block}
+.ish-dc .for{margin-top:8px;font-size:.95rem;color:#3d4a60}
+.ish-dc .praman{background:var(--ink);color:#EEF2F0;padding:72px 0}
+.ish-dc .praman h2{font-size:clamp(2rem,5.5vw,3.4rem);margin-bottom:.3rem}
+.ish-dc .meaning{color:#A9B6C8;font-style:italic;margin-bottom:1.6rem}
+.ish-dc .praman .lead{font-size:1.15rem;max-width:56ch}
+.ish-dc .p-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;margin-top:28px}
+.ish-dc .why{display:grid;gap:18px}
+.ish-dc .why div{border-top:1px solid #3A4A66;padding-top:12px}
+.ish-dc .why b{display:block;color:#fff}
+.ish-dc .why span{color:#B9C4D4;font-size:.95rem}
+.ish-dc .panel{background:#0F1A2D;border:1px solid #3A4A66;padding:20px}
+.ish-dc .panel-h{display:flex;justify-content:space-between;gap:12px;font-size:.85rem;color:#A9B6C8;margin-bottom:10px;flex-wrap:wrap}
+.ish-dc .row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;border-top:1px solid #26344d;font-size:.95rem}
+.ish-dc .row small{display:block;color:#7F8DA3;font-size:.78rem}
+.ish-dc .chip{flex:none;font-size:.78rem;padding:3px 10px;border-radius:999px;border:1px solid}
+.ish-dc .c-ok{color:#5BD1A4;border-color:#2c7d62;background:rgba(31,122,92,.18)}
+.ish-dc .c-wip{color:#F0C070;border-color:#8a6422;background:rgba(183,121,31,.18)}
+.ish-dc .c-pend{color:#B3BDCB;border-color:#4a586f}
+.ish-dc .bar{height:6px;background:#26344d;margin-top:14px}
+.ish-dc .bar i{display:block;height:100%;width:58%;background:#5BD1A4}
+.ish-dc .panel-f{font-size:.78rem;color:#7F8DA3;margin-top:8px}
+.ish-dc .built{margin-top:34px;color:#B9C4D4;max-width:70ch}
+.ish-dc .cta{background:#fff;padding:44px 0;text-align:center;border-top:1px solid var(--line)}
+.ish-dc .cta p{margin:0 auto 1.2rem}
+.ish-dc .btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;padding:13px 28px;border:2px solid var(--ink)}
+.ish-dc .btn:hover{background:#fff;color:var(--ink)}
+
+@media(max-width:768px){
+header{padding:20px 15px 15px}
+header h1{font-size:2em}
+header p{font-size:.95em}
+.logo{position:relative;display:block;margin:0 auto 15px;width:140px;top:0;right:0}
+.container{flex-direction:column;align-items:center;padding:20px 15px;gap:20px}
+.top-card{width:100%;flex-basis:auto}
+.top-card .card{width:90%}
+.bottom-cards{flex-direction:column;align-items:center;width:100%;gap:20px}
+.bottom-cards .card{width:90%}
+#detail-view{padding:15px 15px 40px}
+.extension-wrapper{padding:25px 20px}
+.extension-title{font-size:1.8em}
+.intro-text{font-size:1em}
+.feature-grid{grid-template-columns:1fr}
+.partners-section{padding:25px 15px}
+.partners-grid{gap:15px}
+.partners-grid img{max-width:100px;max-height:55px;padding:8px 12px}
+.why-header{margin-top:30px;margin-bottom:20px}
+.why-header h2{font-size:1.4em;letter-spacing:1.5px}
+.why-grid{grid-template-columns:1fr;gap:15px}
+.why-card{padding:25px 20px}
+footer{padding:30px 15px;font-size:.85em}
+.ish-dc .bim-grid,.ish-dc .p-grid{grid-template-columns:1fr;gap:28px}
+.ish-dc .bim,.ish-dc .praman{padding:48px 0}
 }
-
-.logo {
-  position: absolute;
-  top: 15px;
-  right: 30px;
-  width: 220px;
-  height: auto;
-}
-    header h1 {
-      color: gold;
-      font-size: 3.5em;
-      margin: 0;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-    header p {
-      font-size: 1.1em;
-      color: #aaa;
-      margin-top: 5px;
-    }
-
-    /* Landing Page Container */
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      padding: 40px 20px;
-    }
-    .card-link {
-      text-decoration: none;
-      color: inherit;
-    }
-    .card {
-      background: #111;
-      border-radius: 12px;
-      width: 300px;
-      padding: 25px;
-      text-align: center;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
-      transition: all 0.3s ease;
-      border: 1px solid #222;
-    }
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
-      border-color: gold;
-    }
-    .card img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-    .card h2 {
-      color: gold;
-      font-size: 1.5em;
-      margin-bottom: 15px;
-    }
-
-    /* --- PROFESSIONAL EXTENSION PAGE STYLES --- */
-    #detail-view {
-      display: none;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px 60px;
-    }
-    .back-btn {
-      display: inline-block;
-      margin-bottom: 15px;
-      color: gold;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 0.9em;
-      transition: 0.3s;
-    }
-    .back-btn:hover { text-shadow: 0 0 10px gold; }
-
-    .extension-wrapper {
-      background: linear-gradient(145deg, #0f0f0f, #050505);
-      border: 1px solid #333;
-      border-radius: 20px;
-      padding: 50px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    }
-    
-    .extension-title {
-      color: gold;
-      font-size: 2.8em;
-      margin: 0 0 20px 0;
-      font-family: 'Georgia', serif;
-    }
-    .intro-text {
-      font-size: 1.2em;
-      color: #ccc;
-      margin-bottom: 40px;
-      border-left: 3px solid gold;
-      padding-left: 20px;
-    }
-
-    /* Feature Grid - Enhanced Borders */
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
-    .feature-item {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 30px;
-      border-radius: 15px;
-      border: 1px solid #444; /* Stronger border to prevent merging */
-      box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.05); /* Subtle inner gold glow */
-      transition: border 0.3s ease;
-    }
-    .feature-item:hover {
-      border-color: gold;
-    }
-    .feature-item h3 {
-      color: gold;
-      margin-top: 0;
-      font-size: 1.2em;
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    /* WHY CHOOSE US SECTION - WITH SVG ICONS */
-    .why-header {
-      text-align: center;
-      margin-top: 60px;
-      margin-bottom: 40px;
-    }
-    .why-header h2 {
-      color: gold;
-      font-size: 2em;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-    }
-    
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .why-card {
-      background: #0d0d0d;
-      padding: 35px 25px;
-      border-radius: 20px;
-      text-align: center;
-      border: 1px solid #222;
-      transition: transform 0.3s ease;
-    }
-    .why-card:hover {
-      transform: scale(1.03);
-      border-color: #444;
-    }
-    .why-icon {
-      width: 50px;
-      height: 50px;
-      margin: 0 auto 20px;
-      fill: gold;
-    }
-    .why-card h4 {
-      color: gold;
-      margin: 10px 0;
-      font-size: 1.1em;
-    }
-    .why-card p {
-      font-size: 0.85em;
-      color: #aaa;
-    }
-
-    footer {
-      text-align: center;
-      padding: 50px 20px;
-      color: #666;
-    }
-
-   @media (max-width: 768px) {
-
-      /* HEADER */
-      header {
-        padding: 20px 15px 15px;
-      }
-      header h1 {
-        font-size: 2em;
-      }
-      header p {
-        font-size: 0.95em;
-      }
-
-      /* LOGO — stop it overlapping the title */
-      .logo {
-        position: relative;
-        display: block;
-        margin: 0 auto 15px;
-        width: 140px;
-        top: 0;
-        right: 0;
-      }
-
-      /* HOME PAGE CARDS — full width on mobile */
-      .container {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 15px;
-        gap: 20px;
-      }
-      .card {
-        width: 90%;
-      }
-
-      /* DETAIL PAGE */
-      #detail-view {
-        padding: 15px 15px 40px;
-      }
-      .extension-wrapper {
-        padding: 25px 20px;
-      }
-      .extension-title {
-        font-size: 1.8em;
-      }
-      .intro-text {
-        font-size: 1em;
-      }
-
-      /* FEATURE BOXES — stack vertically */
-      .feature-grid {
-        grid-template-columns: 1fr;
-      }
-
-      /* PARTNERS SECTION */
-      .partners-section {
-        padding: 25px 15px;
-      }
-      .partners-grid {
-        gap: 15px;
-      }
-      .partners-grid img {
-        max-width: 100px;
-        max-height: 55px;
-        padding: 8px 12px;
-      }
-
-      /* WHY CHOOSE SECTION */
-      .why-header {
-        margin-top: 30px;
-        margin-bottom: 20px;
-      }
-      .why-header h2 {
-        font-size: 1.4em;
-        letter-spacing: 1.5px;
-      }
-      .why-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-      }
-      .why-card {
-        padding: 25px 20px;
-      }
-
-      /* FOOTER */
-      footer {
-        padding: 30px 15px;
-        font-size: 0.85em;
-      }
-    }
-    }
-    .partners-section {
-    margin-top: 40px;
-    padding: 40px 50px;
-    background: linear-gradient(145deg, #0f0f0f, #050505);
-    border: 1px solid #333;
-    border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    text-align: center;
-    }
-
-    .partners-section h2 {
-    color: gold;
-    font-size: 2em;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 30px;
-   }
-  .partners-grid {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    gap: 25px;
-    flex-wrap: wrap;
-   }
-
-   .partners-grid img {
-    max-width: 140px;
-    max-height: 70px;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    background: #fff;
-    padding: 12px 18px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
-   }
-   .partners-grid img:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
-   }	
-  </style>
+</style>
 </head>
+
 <body>
 
-  <header>
-  <img src="Images\Ishanova Logo.jpeg" alt="IshaNova Logo" class="logo">
-
-  <h1>IshaNova Concepts</h1>
-  <p>Built on Vision, Driven by Expertise</p>
+<header>
+<img src="Images/Ishanova Logo.jpeg" alt="IshaNova Logo" class="logo">
+<h1>IshaNova Concepts</h1>
+<p>Built on Vision, Driven by Expertise</p>
 </header>
 
-  <div id="home-view" class="container">
-    <a href="?page=township" class="card-link">
-      <div class="card">
-        <img src="Images\1.township.png.png" alt="Township">
-        <h2>Township Development</h2>
-        <p>Master planning and land advisory for thriving communities.</p>
-      </div>
-    </a>
+<div id="home-view" class="container">
 
-    <a href="?page=defence" class="card-link">
-      <div class="card">
-        <img src="Images\2.defence.png.png" alt="Defence">
-        <h2>Defence Investment</h2>
-        <p>Bridging the gap in Telangana's aerospace and defence corridor.</p>
-      </div>
-    </a>
+<div class="top-card">
+<a href="?page=digitalisation" class="card-link">
+<div class="card">
+<img src="Images/4.digitalisation.png.png" alt="Digitalisation">
+<h2>Digitalisation</h2>
+<p>Technology-driven solutions for smarter, connected and future-ready businesses.</p>
+</div>
+</a>
+</div>
 
-    <a href="?page=water" class="card-link">
-      <div class="card">
-        <img src="Images\3.water.png.png" alt="Water">
-        <h2>Water Resources</h2>
-        <p>Expert hydrological studies and sustainable water solutions.</p>
-      </div>
-    </a>
-  </div>
+<div class="bottom-cards">
 
-  <div id="detail-view">
-    <a href="index.html" class="back-btn" id="back-link">← BACK TO OVERVIEW</a>
-    
-    <div id="content-container">
-      </div>
+<a href="?page=township" class="card-link">
+<div class="card">
+<img src="Images/1.township.png.png" alt="Township">
+<h2>Township Development</h2>
+<p>Master planning and land advisory for thriving communities.</p>
+</div>
+</a>
 
-    <div class="why-header">
-      <h2>Why Choose IshaNova?</h2>
-    </div>
-    
-    <div class="why-grid">
-      <div class="why-card">
-        <svg class="why-icon" viewBox="0 0 24 24"><path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z"/></svg>
-        <h4>Client Centric Focus</h4>
-        <p>Tailored strategies built around your vision, not generic templates</p>
-      </div>
-      <div class="why-card">
-        <svg class="why-icon" viewBox="0 0 24 24"><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/></svg>
-        <h4>Regional Mastery</h4>
-        <p>Expertise in South Indian regulatory landscapes and local compliance</p>
-      </div>
-      <div class="why-card">
-        <svg class="why-icon" viewBox="0 0 24 24"><path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M17.13,17C15.92,18.85 14.11,20.24 12,20.92C9.89,20.24 8.08,18.85 6.87,17C6.53,16.5 6.24,16 6,15.47C6,13.47 10,12.33 12,12.33C14,12.33 18,13.47 18,15.47C17.76,16 17.47,16.5 17.13,17Z"/></svg>
-        <h4>Reliable & Transparent</h4>
-        <p>A commitment to ethical practices and measurable project outcomes</p>
-      </div>
-    </div>
-  </div>
+<a href="?page=defence" class="card-link">
+<div class="card">
+<img src="Images/2.defence.png.png" alt="Defence">
+<h2>Defence Investment</h2>
+<p>Bridging the gap in Telangana's aerospace and defence corridor.</p>
+</div>
+</a>
 
-  <footer>
-    <p>&copy; 2026 IshaNova Concepts. Built on Vision, Driven by Expertise.</p>
-  </footer>
+<a href="?page=water" class="card-link">
+<div class="card">
+<img src="Images/3.water.png.png" alt="Water">
+<h2>Water Resources</h2>
+<p>Expert hydrological studies and sustainable water solutions.</p>
+</div>
+</a>
 
-  <script>
-    const content = {
-      'township': {
-        title: "Township Development",
-        intro: "We turn complex land opportunities into thriving, well-planned communities. Our services are designed for landowners, developers, and investors seeking clarity and profitability.",
-        features: [
-          { h: "End-to-End Development", p: "We manage the entire lifecycle—including master planning, regulatory approvals, and infrastructure execution." },
-          { h: "Land Transaction Advisory", p: "Expert guidance on acquisition, due diligence, title verification, and valuation for legally sound deals." },
-          { h: "Strategic Offerings", p: "Site selection, liaison with local authorities, project feasibility studies, and partnership structuring." }
-        ],
-        partners: [
-       "Images/T1 Dastur.png.jpg",
-       "Images/T2 Honer.png.jpg",
-       ]
-      },
-      'defence': {
-        title: "Defence Sector Investment",
-        intro: "IshaNova Concepts facilitates private investment into Telangana’s aerospace corridor. We act as a bridge for investors and agencies.",
-        features: [
-          { h: "Investment Facilitation", p: "Assisting companies in setting up manufacturing, R&D, and support units within industrial hubs." },
-          { h: "Policy & Compliance", p: "Simplifying complex defence procurement policies, offset contracts, and state-specific incentives." },
-          { h: "Why Telangana?", p: "Leveraging robust infrastructure and a skilled talent pool in a premier destination for defence investment." }
-        ],
-        partners: [
-       "Images/D1 DRDO.png.png",
-       "Images/D2 Midhani.png.png",
-       "Images/D3 Adani.png.png"
-       ]
-      },
-      'water': {
-        title: "Water Resources Consulting",
-        intro: "Water is the most critical resource for South India’s future. We offer high-quality expertise catering to government bodies and industries.",
-        features: [
-          { h: "Expert Water Studies", p: "Comprehensive hydrological assessments, groundwater modeling, and aquifer mapping." },
-          { h: "South India Focus", p: "Covering key river basins and coastal aquifers across Karnataka, Tamil Nadu, and Telangana." },
-          { h: "Consulting Services", p: "Water auditing, irrigation feasibility, and sustainable rainwater harvesting design." }
-        ],
-        partners: [
-       "Images/I1 WAPCOS.png.png",
-       "Images/I2 Tata.png.png",
-       "Images/I3 Pranava.png.png"
-       ]
-      }
-    };
+</div>
+</div>
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const page = urlParams.get('page');
+<div id="detail-view">
 
-    if (page && content[page]) {
-      document.getElementById('home-view').style.display = 'none';
-      document.getElementById('detail-view').style.display = 'block';
-      document.getElementById('back-link').href = window.location.pathname;
+<a href="index.html" class="back-btn" id="back-link">← BACK TO OVERVIEW</a>
 
-      const data = content[page];
-      let partnersHtml = data.partners.map(partner => `
-      <img src="${partner}" alt="Partner Logo">
-      `).join('');
-      let featureHtml = data.features.map(f => `
-        <div class="feature-item">
-          <h3>${f.h}</h3>
-          <p style="font-size:0.95em; color:#bbb">${f.p}</p>
-        </div>
-      `).join('');
+<div id="content-container"></div>
 
-      document.getElementById('content-container').innerHTML = `
-        <div class="extension-wrapper">
-          <h2 class="extension-title">${data.title}</h2>
-          <p class="intro-text">${data.intro}</p>
-          <div class="feature-grid">${featureHtml}</div>
-        </div>
+<div class="why-header"><h2>Why Choose IshaNova?</h2></div>
 
-    <div class="partners-section">
-    <h2>Partnered With</h2>
+<div class="why-grid">
 
-    <div class="partners-grid">
-        ${partnersHtml}
-    </div>
-    </div>
-      `;
-    }
-  </script>
+<div class="why-card">
+<svg class="why-icon" viewBox="0 0 24 24"><path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z"/></svg>
+<h4>Client Centric Focus</h4>
+<p>Tailored strategies built around your vision, not generic templates.</p>
+</div>
+
+<div class="why-card">
+<svg class="why-icon" viewBox="0 0 24 24"><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0 1 12,11.5M12,2A7,7 0 0 0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0 0 12,2Z"/></svg>
+<h4>Regional Mastery</h4>
+<p>Expertise in South Indian regulatory landscapes and local compliance.</p>
+</div>
+
+<div class="why-card">
+<svg class="why-icon" viewBox="0 0 24 24"><path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M17.13,17C15.92,18.85 14.11,20.24 12,20.92C9.89,20.24 8.08,18.85 6.87,17C6.53,16.5 6.24,16 6,15.47C6,13.47 10,12.33 12,12.33C14,12.33 18,13.47 18,15.47C17.76,16 17.47,16.5 17.13,17Z"/></svg>
+<h4>Reliable & Transparent</h4>
+<p>A commitment to ethical practices and measurable project outcomes.</p>
+</div>
+
+</div>
+</div>
+
+<footer>
+<p>&copy; 2026 IshaNova Concepts. Built on Vision, Driven by Expertise.</p>
+</footer>
+
+<script>
+const content={
+township:{
+title:"Township Development",
+intro:"We turn complex land opportunities into thriving, well-planned communities. Our services are designed for landowners, developers, and investors seeking clarity and profitability.",
+features:[
+{h:"End-to-End Development",p:"We manage the entire lifecycle—including master planning, regulatory approvals, and infrastructure execution."},
+{h:"Land Transaction Advisory",p:"Expert guidance on acquisition, due diligence, title verification, and valuation for legally sound deals."},
+{h:"Strategic Offerings",p:"Site selection, liaison with local authorities, project feasibility studies, and partnership structuring."}
+],
+partners:["Images/T1 Dastur.png.jpg","Images/T2 Honer.png.jpg"]
+},
+defence:{
+title:"Defence Sector Investment",
+intro:"IshaNova Concepts facilitates private investment into Telangana’s aerospace corridor. We act as a bridge for investors and agencies.",
+features:[
+{h:"Investment Facilitation",p:"Assisting companies in setting up manufacturing, R&D, and support units within industrial hubs."},
+{h:"Policy & Compliance",p:"Simplifying complex defence procurement policies, offset contracts, and state-specific incentives."},
+{h:"Why Telangana?",p:"Leveraging robust infrastructure and a skilled talent pool in a premier destination for defence investment."}
+],
+partners:["Images/D1 DRDO.png.png","Images/D2 Midhani.png.png","Images/D3 Adani.png.png"]
+},
+water:{
+title:"Water Resources Consulting",
+intro:"Water is the most critical resource for South India’s future. We offer high-quality expertise catering to government bodies and industries.",
+features:[
+{h:"Expert Water Studies",p:"Comprehensive hydrological assessments, groundwater modeling, and aquifer mapping."},
+{h:"South India Focus",p:"Covering key river basins and coastal aquifers across Karnataka, Tamil Nadu, and Telangana."},
+{h:"Consulting Services",p:"Water auditing, irrigation feasibility, and sustainable rainwater harvesting design."}
+],
+partners:["Images/I1 WAPCOS.png.png","Images/I2 Tata.png.png","Images/I3 Pranava.png.png"]
+}
+};
+
+const digitalisationContent=`
+<section class="ish-dc" id="digital-construction">
+
+<div class="bim">
+<div class="wrap bim-grid">
+
+<div>
+<h2>BIMCollab licences for India, through IshaNova</h2>
+<p class="lead">IshaNova Concepts is the licence distributor of BIMCollab, the Netherlands-built platform for BIM issue management, bringing it to India first and then the wider SAARC region.</p>
+<p>Delays and disputes on construction projects usually start with scattered communication: drawings in one place, comments in email, decisions on chat. BIMCollab puts every issue on the 3D model, where it can be raised, assigned and closed in one traceable record.</p>
+<p>It runs on the open BCF standard, so architects, engineers, contractors and owners can work together whichever design software they use.</p>
+<p class="for"><b>Built for</b> developers, EPC contractors, consultancies, architecture and engineering firms, and public-sector project owners.</p>
+</div>
+
+<div class="get">
+<h3>What you get</h3>
+<ul>
+<li><b>Local licensing and onboarding</b>Buy and set up with a team that knows Indian project realities.</li>
+<li><b>Direct billing with the vendor</b>You use the global product; IshaNova is your local partner.</li>
+<li><b>Rollout support</b>Workflow setup, team training and adoption on live projects.</li>
+<li><b>Regional expertise</b>Familiarity with South Indian regulatory and compliance requirements.</li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<div class="praman">
+<div class="wrap">
+
+<h2>Project Praman</h2>
+<p class="meaning">Praman (प्रमाण): proof, evidence, verification.</p>
+<p class="lead">Every rupee of progress, proven on the model.</p>
+<p style="max-width:62ch;color:#B9C4D4">Praman links site progress to the BIMCollab 3D model, element by element. Owners, lenders and monitoring authorities see what has actually been built, not only what has been reported.</p>
+
+<div class="p-grid">
+
+<div class="why">
+<div><b>Transparency</b><span>A living model that reflects real site status.</span></div>
+<div><b>Accountability</b><span>Progress claims tied to specific building elements.</span></div>
+<div><b>Faster decisions</b><span>Issues, approvals and correspondence in one traceable record.</span></div>
+<div><b>Lean by design</b><span>A light capture layer on site, connected to BIMCollab through open APIs.</span></div>
+<div><b>AI-assisted monitoring</b><span>Early warning on slippage, with a clear audit trail.</span></div>
+</div>
+
+<div class="panel" role="img" aria-label="Illustration: building elements marked verified, in progress or pending">
+
+<div class="panel-h"><span>Level 3: element status</span><span>Illustrative</span></div>
+
+<div class="row"><span>Column C-14<small>Concrete pour</small></span><span class="chip c-ok">Verified</span></div>
+<div class="row"><span>Slab S-03<small>Reinforcement</small></span><span class="chip c-ok">Verified</span></div>
+<div class="row"><span>Beam B-22<small>Formwork</small></span><span class="chip c-wip">In progress</span></div>
+<div class="row"><span>Wall W-09<small>Masonry</small></span><span class="chip c-pend">Pending</span></div>
+
+<div class="bar"><i></i></div>
+<div class="panel-f">Progress verified against the model</div>
+
+</div>
+</div>
+
+<p class="built">Built for metro and infrastructure projects, government works, and large private developments where proof of progress drives payments and trust.</p>
+
+</div>
+</div>
+
+<div class="cta">
+<div class="wrap">
+<p>Planning a project or evaluating BIM collaboration tools? Talk to us about BIMCollab licences and Project Praman.</p>
+<a class="btn" href="#contact">Contact IshaNova</a>
+</div>
+</div>
+
+</section>`;
+
+const urlParams=new URLSearchParams(window.location.search);
+const page=urlParams.get('page');
+
+if(page&&(content[page]||page==='digitalisation')){
+document.getElementById('home-view').style.display='none';
+document.getElementById('detail-view').style.display='block';
+document.getElementById('back-link').href=window.location.pathname;
+
+if(page==='digitalisation'){
+document.getElementById('content-container').innerHTML=digitalisationContent;
+}else{
+const data=content[page];
+const partnersHtml=data.partners.map(partner=>`<img src="${partner}" alt="Partner Logo">`).join('');
+const featureHtml=data.features.map(f=>`<div class="feature-item"><h3>${f.h}</h3><p style="font-size:.95em;color:#bbb">${f.p}</p></div>`).join('');
+
+document.getElementById('content-container').innerHTML=`
+<div class="extension-wrapper">
+<h2 class="extension-title">${data.title}</h2>
+<p class="intro-text">${data.intro}</p>
+<div class="feature-grid">${featureHtml}</div>
+</div>
+<div class="partners-section">
+<h2>Partnered With</h2>
+<div class="partners-grid">${partnersHtml}</div>
+</div>`;
+}
+}
+</script>
+
 </body>
 </html>
