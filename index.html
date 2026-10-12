@@ -11,16 +11,16 @@ header{position:relative;text-align:center;padding:60px 20px 20px}
 .logo{position:absolute;top:15px;right:30px;width:220px;height:auto}
 header h1{color:gold;font-size:3.5em;margin:0;letter-spacing:2px;text-transform:uppercase}
 header p{font-size:1.1em;color:#aaa;margin-top:5px}
-.container{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;padding:40px 20px;max-width:1100px;margin:0 auto}
+.container{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));justify-content:center;gap:30px;padding:40px 20px;max-width:1200px;margin:0 auto}
 .card-link{text-decoration:none;color:inherit}
-.top-card{flex-basis:100%;display:flex;justify-content:center}
+.top-card{grid-column:1/-1;display:flex;justify-content:center}
 .top-card .card{width:300px}
-.bottom-cards{display:flex;justify-content:center;align-items:stretch;gap:30px;width:100%}
-.card{background:#111;border-radius:12px;width:300px;height:400px;padding:25px;text-align:center;box-shadow:0 0 20px rgba(255,215,0,.2);transition:all .3s ease;border:1px solid #222;box-sizing:border-box;display:flex;flex-direction:column}
+.bottom-cards{display:contents}
+.card{background:#111;border-radius:12px;width:300px;height:450px;padding:25px;text-align:center;box-shadow:0 0 20px rgba(255,215,0,.2);transition:all .3s ease;border:1px solid #222;box-sizing:border-box;display:flex;flex-direction:column}
 .card:hover{transform:translateY(-10px);box-shadow:0 0 30px rgba(255,215,0,.4);border-color:gold}
-.card img{width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:20px}
-.card h2{color:gold;font-size:1.5em;margin-bottom:15px;margin-top:auto}
-.card p{flex-grow:1;display:flex;align-items:center}
+.card img{width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:20px;flex-shrink:0}
+.card h2{color:gold;font-size:1.5em;margin:0 0 15px 0;flex-shrink:0}
+.card p{flex-grow:1;display:flex;align-items:center;margin:0;font-size:0.95em;color:#bbb}
 #detail-view{display:none;max-width:1100px;margin:0 auto;padding:0 20px 60px}
 .back-btn{display:inline-block;margin-bottom:15px;color:gold;text-decoration:none;font-weight:bold;font-size:.9em;transition:.3s}
 .back-btn:hover{text-shadow:0 0 10px gold}
@@ -47,7 +47,7 @@ header p{font-size:1.1em;color:#aaa;margin-top:5px}
 footer{text-align:center;padding:50px 20px;color:#666}
 
 /* Digitalisation section */
-.ish-dc{--ink:#16233B;--paper:#F3F5F4;--line:#D5DAD8;--ok:#1F7A5C;--wip:#B7791F;--pend:#6B7686;--accent:#1F7A5C;font-family:"Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.6;box-sizing:border-box}
+.ish-dc{--ink:#16233B;--paper:#F3F5F4;--line:#D5DAD8;--ok:#1F7A5C;--wip:#B7791F;--pend:#6B7686;--accent:#1F7A5C;font-family:"Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif;color:var(--ink)}
 .ish-dc *,.ish-dc *::before,.ish-dc *::after{box-sizing:inherit}
 .ish-dc h2,.ish-dc h3{font-family:Georgia,"Times New Roman",serif;font-weight:700;line-height:1.2;margin:0 0 .6rem}
 .ish-dc p{margin:0 0 1rem;max-width:62ch}
@@ -95,11 +95,11 @@ header{padding:20px 15px 15px}
 header h1{font-size:2em}
 header p{font-size:.95em}
 .logo{position:relative;display:block;margin:0 auto 15px;width:140px;top:0;right:0}
-.container{flex-direction:column;align-items:center;padding:20px 15px;gap:20px}
-.top-card{width:100%;flex-basis:auto}
-.top-card .card{width:90%}
-.bottom-cards{flex-direction:column;align-items:center;width:100%;gap:20px}
-.bottom-cards .card{width:90%}
+.container{grid-template-columns:1fr;gap:20px;padding:20px 15px}
+.top-card{grid-column:1}
+.bottom-cards{display:flex;flex-direction:column;align-items:center;width:100%;gap:20px}
+.bottom-cards .card{width:90%;max-width:300px}
+.top-card .card{width:90%;max-width:300px}
 #detail-view{padding:15px 15px 40px}
 .extension-wrapper{padding:25px 20px}
 .extension-title{font-size:1.8em}
@@ -143,7 +143,7 @@ footer{padding:30px 15px;font-size:.85em}
 
 <a href="?page=township" class="card-link">
 <div class="card">
-<img src="Images/1.township.png.png" alt="Township">
+<img src="Images/1.township.png" alt="Township">
 <h2>Township Development</h2>
 <p>Master planning and land advisory for thriving communities.</p>
 </div>
@@ -151,7 +151,7 @@ footer{padding:30px 15px;font-size:.85em}
 
 <a href="?page=defence" class="card-link">
 <div class="card">
-<img src="Images/2.defence.png.png" alt="Defence">
+<img src="Images/2.defence.png" alt="Defence">
 <h2>Defence Investment</h2>
 <p>Bridging the gap in Telangana's aerospace and defence corridor.</p>
 </div>
@@ -159,7 +159,7 @@ footer{padding:30px 15px;font-size:.85em}
 
 <a href="?page=water" class="card-link">
 <div class="card">
-<img src="Images/3.water.png.png" alt="Water">
+<img src="Images/3.water.png" alt="Water">
 <h2>Water Resources</h2>
 <p>Expert hydrological studies and sustainable water solutions.</p>
 </div>
@@ -191,7 +191,7 @@ footer{padding:30px 15px;font-size:.85em}
 </div>
 
 <div class="why-card">
-<svg class="why-icon" viewBox="0 0 24 24"><path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M17.13,17C15.92,18.85 14.11,20.24 12,20.92C9.89,20.24 8.08,18.85 6.87,17C6.53,16.5 6.24,16 6,15.47C6,13.47 10,12.33 12,12.33C14,12.33 18,13.47 18,15.47C17.76,16 17.47,16.5 17.13,17Z"/></svg>
+<svg class="why-icon" viewBox="0 0 24 24"><path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5Z"/></svg>
 <h4>Reliable & Transparent</h4>
 <p>A commitment to ethical practices and measurable project outcomes.</p>
 </div>
@@ -217,7 +217,7 @@ partners:["Images/T1 Dastur.png.jpg","Images/T2 Honer.png.jpg"]
 },
 defence:{
 title:"Defence Sector Investment",
-intro:"IshaNova Concepts facilitates private investment into Telangana’s aerospace corridor. We act as a bridge for investors and agencies.",
+intro:"IshaNova Concepts facilitates private investment into Telangana's aerospace corridor. We act as a bridge for investors and agencies.",
 features:[
 {h:"Investment Facilitation",p:"Assisting companies in setting up manufacturing, R&D, and support units within industrial hubs."},
 {h:"Policy & Compliance",p:"Simplifying complex defence procurement policies, offset contracts, and state-specific incentives."},
@@ -227,7 +227,7 @@ partners:["Images/D1 DRDO.png.png","Images/D2 Midhani.png.png","Images/D3 Adani.
 },
 water:{
 title:"Water Resources Consulting",
-intro:"Water is the most critical resource for South India’s future. We offer high-quality expertise catering to government bodies and industries.",
+intro:"Water is the most critical resource for South India's future. We offer high-quality expertise catering to government bodies and industries.",
 features:[
 {h:"Expert Water Studies",p:"Comprehensive hydrological assessments, groundwater modeling, and aquifer mapping."},
 {h:"South India Focus",p:"Covering key river basins and coastal aquifers across Karnataka, Tamil Nadu, and Telangana."},
@@ -246,7 +246,7 @@ const digitalisationContent=`
 <div>
 <h2>BIMCollab licences for India, through IshaNova</h2>
 <p class="lead">IshaNova Concepts is the licence distributor of BIMCollab, the Netherlands-built platform for BIM issue management, bringing it to India first and then the wider SAARC region.</p>
-<p>Delays and disputes on construction projects usually start with scattered communication: drawings in one place, comments in email, decisions on chat. BIMCollab puts every issue on the 3D model, where it can be raised, assigned and closed in one traceable record.</p>
+<p>Delays and disputes on construction projects usually start with scattered communication: drawings in one place, comments in email, decisions on chat. BIMCollab puts every issue on the 3D model, where it belongs.</p>
 <p>It runs on the open BCF standard, so architects, engineers, contractors and owners can work together whichever design software they use.</p>
 <p class="for"><b>Built for</b> developers, EPC contractors, consultancies, architecture and engineering firms, and public-sector project owners.</p>
 </div>
@@ -270,7 +270,7 @@ const digitalisationContent=`
 <h2>Project Praman</h2>
 <p class="meaning">Praman (प्रमाण): proof, evidence, verification.</p>
 <p class="lead">Every rupee of progress, proven on the model.</p>
-<p style="max-width:62ch;color:#B9C4D4">Praman links site progress to the BIMCollab 3D model, element by element. Owners, lenders and monitoring authorities see what has actually been built, not only what has been reported.</p>
+<p style="max-width:62ch;color:#B9C4D4">Praman links site progress to the BIMCollab 3D model, element by element. Owners, lenders and monitoring authorities see what has actually been built, not just on paper.</p>
 
 <div class="p-grid">
 
