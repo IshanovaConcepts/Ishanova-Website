@@ -11,16 +11,18 @@ header{position:relative;text-align:center;padding:60px 20px 20px}
 .logo{position:absolute;top:15px;right:30px;width:220px;height:auto}
 header h1{color:gold;font-size:3.5em;margin:0;letter-spacing:2px;text-transform:uppercase}
 header p{font-size:1.1em;color:#aaa;margin-top:5px}
-.container{display:flex;flex-direction:column;align-items:center;gap:15px;padding:40px 20px}
+.container{display:flex;flex-direction:column;align-items:center;gap:28px;padding:50px 24px 60px}
 .top-section{width:100%;display:flex;justify-content:center}
-.bottom-section{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;width:100%}
-.card-link{text-decoration:none;color:inherit}
-.card{background:#111;border-radius:12px;width:300px;height:auto;padding:25px;text-align:center;box-shadow:0 0 20px rgba(255,215,0,.2);transition:all .3s ease;border:1px solid #222;box-sizing:border-box;display:flex;flex-direction:column}
+.bottom-section{display:grid;grid-template-columns:repeat(3,minmax(0,320px));justify-content:center;gap:28px;width:100%;align-items:stretch}
+.card-link{text-decoration:none;color:inherit;display:flex}
+.card{background:#111;border-radius:16px;width:100%;height:380px;padding:22px;text-align:center;box-shadow:0 0 20px rgba(255,215,0,.2);transition:all .3s ease;border:1px solid #222;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start}
 .card:hover{transform:translateY(-10px);box-shadow:0 0 30px rgba(255,215,0,.4);border-color:gold}
-.card img{width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:20px;flex-shrink:0}
-.card h2{color:gold;font-size:1.5em;margin:0 0 15px 0;flex-shrink:0}
-.card p{flex-grow:1;display:flex;align-items:center;margin:0;font-size:0.95em;color:#bbb}
-.top-section .card{height:450px;width:350px}
+.card img{width:100%;height:185px;object-fit:cover;border-radius:10px;margin-bottom:18px;flex-shrink:0}
+.card h2{color:gold;font-size:1.45em;line-height:1.25;margin:0 0 14px 0;min-height:58px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.card p{flex:1;display:flex;align-items:flex-start;justify-content:center;margin:0;font-size:0.95em;color:#bbb;line-height:1.6;padding:0 4px}
+.top-section .card{height:340px;width:420px}
+.top-section .card img{height:185px}
+.top-section .card h2{min-height:auto;margin-bottom:12px}
 #detail-view{display:none;max-width:1100px;margin:0 auto;padding:0 20px 60px}
 .back-btn{display:inline-block;margin-bottom:15px;color:gold;text-decoration:none;font-weight:bold;font-size:.9em;transition:.3s}
 .back-btn:hover{text-shadow:0 0 10px gold}
@@ -45,53 +47,9 @@ header p{font-size:1.1em;color:#aaa;margin-top:5px}
 .partners-grid img{max-width:140px;max-height:70px;width:auto;height:auto;object-fit:contain;background:#fff;padding:12px 18px;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,.3);transition:transform .3s}
 .partners-grid img:hover{transform:translateY(-6px);box-shadow:0 8px 20px rgba(212,175,55,.3)}
 footer{text-align:center;padding:50px 20px;color:#666}
-  /* Equalize service card sizes and keep top-card same ratio (override placed last) */
-.container, .bottom-cards { align-items: start; }
-
-/* Base card size (controls all service cards) */
-.card {
-  width: 320px;         /* card width */
-  height: 480px;        /* card height -> keeps consistent height across cards */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  box-sizing: border-box;
-}
-
-/* Make card images a consistent slice of the card so cards look balanced */
-.card img {
-  width: 100%;
-  height: 180px;        /* image height inside card */
-  object-fit: cover;
-  flex-shrink: 0;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-/* Top (Digitalisation) card: wider, but keep same W:H ratio as .card */
-/* ratio of .card is 320:480 = 2:3; scale up to match layout without changing ratio */
-.top-card .card {
-  width: 480px;         /* makes top card wider */
-  height: 720px;        /* keeps the 2:3 ratio (480:720) */
-}
-
-/* Ensure text/content doesn't overflow */
-.card h2 { margin: 0 0 10px; }
-.card p { margin: 0; }
-
-/* Responsive: on small screens allow cards to resize and stack naturally */
-@media (max-width: 768px) {
-  .card, .top-card .card {
-    width: 90%;
-    height: auto;            /* let content determine height on small screens */
-  }
-  .card img {
-    height: 160px;
-  }
-  .top-card .card img {
-    height: 160px;
-  }
-}
+  /* Landing-page service card refinements only */
+  .bottom-section .card{width:100%;height:380px}
+  .top-section .card{width:420px;height:340px}
 
 /* Digitalisation section */
 .ish-dc{--ink:#16233B;--paper:#F3F5F4;--line:#D5DAD8;--ok:#1F7A5C;--wip:#B7791F;--pend:#6B7686;--accent:#1F7A5C;font-family:"Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif;color:var(--ink)}
